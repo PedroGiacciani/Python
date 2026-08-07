@@ -4,7 +4,7 @@ notas = []
 acima = []
 
 for valor in range(6):
-    valor = int(input("Digite sua nota: "))
+    valor = float(input("Digite sua nota: "))
     notas.append(valor)
 
 print(f"A maior nota é {max(notas)} e a menor é {min(notas)}")

@@ -5,7 +5,7 @@ matriz = []
 for linha in range(3):
     linha = []
     for valor in range(3): #for(int i = 0; i<3; i++)
-        valor = int(input("Digite um valor: "))
+        valor = float(input("Digite um valor: "))
         linha.append(valor)
     matriz.append(linha)
 

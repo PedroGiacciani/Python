@@ -3,7 +3,7 @@
 a = []
 
 for valor in range(5):
-    valor = int(input("Digite um valor: "))
+    valor = int(input("Digite um valor inteiro: "))
     a.append(valor)
 
 print(f"A soma entre esses valores é {sum(a)}")
