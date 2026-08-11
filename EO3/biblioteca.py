@@ -35,7 +35,7 @@ while op != 0:
             for livro in acervo:
                 livro.get("ano", "Ano indisponível")
                 print(f"{livro["titulo"]} ({livro["ano"]}) - {livro["autor"]}")
-                
+
         op = int(input("Bem vindo! \n1 - Cadastrar Livro\n2 - Procurar\n3 - Listar\n0 - Sair\n"))
     elif op == 0:
         print("Ok, programa encerrando...")
@@ -43,3 +43,8 @@ while op != 0:
     else:
         print(f"Por favor, digite um número válido")
         break
+
+
+#Pergunta 1: O int no input do livro
+#Pergunta 2: O int no input do livro
+#Pergunta 3: Apenas na parte de cadastrar o livro e listar ele
