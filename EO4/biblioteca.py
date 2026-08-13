@@ -4,7 +4,12 @@ op = 999
 def cadastrarLivro(acervo):
         titulo = input("Digite o título do livro: ")
         autor = input("Digite o autor do livro: ")
-        ano = int(input("Digite o ano do livro: "))
+        while True:
+            try:
+                ano = int(input("Digite o ano do livro:"))
+                break
+            except ValueError:
+                print("O ano precisa ser um número!")
 
         acervo.append({"titulo": titulo, "autor": autor, "ano": ano}) #Adiciona no array
         print(f"Livro cadastrado:")
@@ -34,11 +39,11 @@ def listarLivros(acervo):
 
 
 while True: #Repetição da função até que o usuário escolha 0
-    op = int(input("Bem vindo! \n1 - Cadastrar Livro\n2 - Procurar\n3 - Listar\n0 - Sair\n")) #Mostrar na tela as opções    
+    op = int(input("Bem vindo! \n1 - Cadastrar Livro\n2 - Procurar\n3 - Listar\n0 - Sair\n")) #Mostrar na tela as opções   
 
     if op == 1: #Pede os dados do livro para cadastrá-lo (adicionar no array)
         cadastrarLivro(acervo)
-
+    
     elif op == 2: #Procurar livros a partir do nome
         procurarLivro(acervo)
         
