@@ -55,6 +55,17 @@ class Usuario:
     def __str__(self):
         return(f"{self.nome} - {self.id} - Limite: {self.limite}")
 
+    @property
+    def limite(self):
+        return self._limite
+
+    @limite.setter
+    def limite(self, valor):
+        if valor > 3:
+            raise ValueError("Limite do usuário atingido!!")
+        self._limite = valor
+    
+
     def podePegar(self):
         if self.limite > 3:
             return False
@@ -125,7 +136,7 @@ if __name__ == "__main__":
 
     newEmp.devolver()
     print(newEmp)
-    #newEmp.devolver()
+    #newEmp.devolver() #coloquei em comentário porque se não o resto não aparece
 
     newUser2 = Usuario("Menechelli", "98394")
     newUser2.limite = 4
