@@ -85,13 +85,13 @@ acervo = [
 user = Usuario("Pedro", "170707")
 emp = Emprestimo(livro, user, "21/08/2026")
 
-print(emp)
-print(emp.livro.autor)
-print(user.id)
+# print(emp)
+# print(emp.livro.autor)
+# print(user.id)
 
-emp.devolver()
-print(emp)
-emp.devolver()
+# emp.devolver()
+# print(emp)
+# emp.devolver()
 
 # for livro in acervo:
 #     print(f"{livro.titulo} - {livro.autor} ({livro.ano})")
@@ -102,7 +102,21 @@ if __name__ == "__main__":
         Livro("A Arte da Guerra", "Sun Tzu", 1450)
     ]
 
-    for livro in acervo:
-        print(f"{livro}")
+    # for livro in acervo:
+    #     print(f"{livro}")
 
     #Livro("Teste", "alguem", 3000)
+
+    livroNovo = Livro("Cristianismo Puro e Simples", "C. S. Lewis", 1946)
+    print(livroNovo)
+    #livroNovo.ano = 3000 #coloquei em comentário porque se não o resto não aparece
+
+    newUser = Usuario("Eric", "390924")
+    newEmp = Emprestimo(livroNovo, newUser, "20/09/2026")
+    print(newEmp)
+
+    print(newEmp.livro.titulo)
+
+    newEmp.devolver()
+    print(newEmp)
+    newEmp.devolver()
