@@ -15,6 +15,19 @@ class Livro:
         self.autor = autor
         self.ano = ano
 
+    @property
+    def ano(self):
+        return self._ano
+
+    @ano.setter
+    def ano(self, valor):
+        if valor < 1450 or valor > date.today().year:
+            raise ValueError(f"Ano inválido: {valor}")
+        self._ano = valor
+        
+    def __str__(self):
+        return self.descricao()
+
     def descricao(self):
         return(f"{self.titulo} - {self.autor} ({self.ano})")
 
@@ -27,6 +40,37 @@ class Livro:
         else:
             return("Não é clássico")
 
+class Usuario:
+    def __init__(self, nome, id):
+        self.nome = nome
+        self.id = id
+
+        if not nome:
+            raise ValueError("Nome é obrigatório")
+
+        if not id:
+            print("Id obrigatório")
+
+    def __str__(self):
+        return(f"{self.nome} - {self.id}")
+
+class Emprestimo:
+    def __init__(self, livro, usuario, data):
+        self.livro = livro
+        self.usuario = usuario
+        self.data = data
+        self.entregue = False
+
+    def devolver(self):
+        if self.entregue:
+            raise ValueError(f"Livro: {self.livro} Já foi devolvido")
+        self.entregue = True
+
+    def __str__(self):
+        estado = "Devolvido" if self.entregue else "Em aberto"
+        return(f"{self.usuario} -> {self.livro} {estado}")
+
+
 livro = Livro("Romeu e Julieta", "Shakespeare", 1591)
 # print(livro.descricao())
 # print(livro.idade())
@@ -38,6 +82,17 @@ acervo = [
     Livro("It - A coisa", "Stephen King", 1980)
 ]
 
+user = Usuario("Pedro", "170707")
+emp = Emprestimo(livro, user, "21/08/2026")
+
+print(emp)
+print(emp.livro.autor)
+print(user.id)
+
+emp.devolver()
+print(emp)
+emp.devolver()
+
 # for livro in acervo:
 #     print(f"{livro.titulo} - {livro.autor} ({livro.ano})")
 
@@ -48,6 +103,6 @@ if __name__ == "__main__":
     ]
 
     for livro in acervo:
-        print(f"{livro.descricao()} - {livro.idade()} anos, {livro.classico()}")
+        print(f"{livro}")
 
     #Livro("Teste", "alguem", 3000)
