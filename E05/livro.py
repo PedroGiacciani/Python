@@ -44,6 +44,7 @@ class Usuario:
     def __init__(self, nome, id):
         self.nome = nome
         self.id = id
+        self.limite = 3
 
         if not nome:
             raise ValueError("Nome é obrigatório")
@@ -52,7 +53,12 @@ class Usuario:
             print("Id obrigatório")
 
     def __str__(self):
-        return(f"{self.nome} - {self.id}")
+        return(f"{self.nome} - {self.id} - Limite: {self.limite}")
+
+    def podePegar(self):
+        if self.limite > 3:
+            return False
+        return True
 
 class Emprestimo:
     def __init__(self, livro, usuario, data):
@@ -119,4 +125,9 @@ if __name__ == "__main__":
 
     newEmp.devolver()
     print(newEmp)
-    newEmp.devolver()
+    #newEmp.devolver()
+
+    newUser2 = Usuario("Menechelli", "98394")
+    newUser2.limite = 4
+    newEmp2 = Emprestimo(livroNovo, newUser2, "20/09/2026")
+    print(newEmp2)
